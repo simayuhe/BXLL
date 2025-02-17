@@ -1,0 +1,126 @@
+<!--pages/profile/profile.wxml-->
+<view class="container">
+  <!-- 用户信息区域 -->
+  <view class="user-info">
+    <view class="user-basic" bindtap="goToEdit">
+      <image class="user-avatar" src="/assets/MinePage/avatar.png" mode="aspectFill"></image>
+      <view class="user-detail">
+        <view class="user-name">yyq<text class="user-level">LV2</text></view>
+        <view class="user-id">ID:765263</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 数据统计区域 -->
+  <view class="stats-section">
+    <view class="stats-item">
+      <text class="stats-num">7</text>
+      <text class="stats-label">关注</text>
+    </view>
+    <view class="stats-item">
+      <text class="stats-num">12</text>
+      <text class="stats-label">粉丝</text>
+    </view>
+    <view class="stats-item">
+      <text class="stats-num">88</text>
+      <text class="stats-label">获赞</text>
+    </view>
+  </view>
+
+  <!-- 成就区域 -->
+  <view class="achievement-section">
+    <view class="section-title">我的成就</view>
+    <view class="achievement-list">
+      <view class="achievement-item">
+        <image class="achievement-icon" src="/assets/MinePage/score.png"></image>
+        <text class="achievement-label">打卡点数</text>
+        <text class="achievement-value">34个</text>
+      </view>
+      <view class="achievement-item">
+        <image class="achievement-icon" src="/assets/MinePage/team.png"></image>
+        <text class="achievement-label">组队</text>
+        <text class="achievement-value">34次</text>
+      </view>
+      <view class="achievement-item">
+        <image class="achievement-icon" src="/assets/MinePage/guide.png"></image>
+        <text class="achievement-label">坚持锻炼</text>
+        <text class="achievement-value">3周</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 足迹和活动区域 -->
+  <view class="flex-row-section">
+    <!-- 足迹部分 -->
+    <view class="content-section flex-1">
+      <view class="section-header">
+        <text>我的足迹</text>
+        <text class="more-icon">></text>
+      </view>
+      <view class="map-container">
+        <map 
+          class="map" 
+          longitude="{{longitude}}" 
+          latitude="{{latitude}}" 
+          scale="12"
+          markers="{{markers}}"
+          bindmarkertap="onMarkerTap"
+          show-location
+          enable-zoom
+          enable-scroll
+        ></map>
+      </view>
+    </view>
+
+    <!-- 活动部分 -->
+    <view class="content-section flex-1">
+      <view class="section-header">
+        <text>我参与的活动</text>
+        <text class="more-icon">></text>
+      </view>
+      <view class="activity-list">
+        <view class="activity-item" wx:for="{{[6,8,8,4]}}" wx:key="index">
+          <text class="activity-date">2月</text>
+          <view class="activity-bar" style="width: {{item*40}}rpx"></view>
+          <text class="activity-count">{{item}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 内容切换区域 -->
+  <view class="tab-section">
+    <view class="tab-header">
+      <view 
+        wx:for="{{tabs}}" 
+        wx:key="index"
+        class="tab-item {{currentTab === index ? 'active' : ''}}"
+        bindtap="switchTab"
+        data-index="{{index}}"
+      >
+        {{item}}
+      </view>
+    </view>
+    
+    <scroll-view scroll-y class="content-scroll" enhanced show-scrollbar="{{false}}">
+      <view class="content-list">
+        <block wx:if="{{currentList.length > 0}}">
+          <view 
+            class="content-item" 
+            wx:for="{{currentList}}" 
+            wx:key="index"
+          >
+            <image src="{{item.image}}" mode="aspectFill"></image>
+            <view class="content-overlay">
+              <text class="content-title">{{item.title}}</text>
+              <text class="content-desc">{{item.desc}}</text>
+            </view>
+          </view>
+        </block>
+        <view wx:else class="empty-state">
+          暂无内容
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

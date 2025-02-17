@@ -1,0 +1,14 @@
+/* pages/message/message.wxss */
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-title {
+  font-size: 36rpx;
+  color: #353535;
+  font-weight: 500;
+}

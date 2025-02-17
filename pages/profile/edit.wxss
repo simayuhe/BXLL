@@ -1,0 +1,120 @@
+.container {
+  min-height: 100vh;
+  background: #fff;
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-top: calc(44px + env(safe-area-inset-top));
+}
+
+/* 表单样式 */
+.form-section {
+  width: 100%;
+}
+
+.form-item {
+  height: 110rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 40rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.form-label {
+  width: 120rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.form-input {
+  flex: 1;
+  height: 110rpx;
+  font-size: 28rpx;
+  color: #333;
+  text-align: right;
+}
+
+.form-text {
+  flex: 1;
+  font-size: 28rpx;
+  color: #333;
+  text-align: right;
+}
+
+/* 底部提示 */
+.bottom-tip {
+  padding: 40rpx;
+  text-align: center;
+}
+
+.tip-text {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.tip-link {
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* 底部按钮 */
+.bottom-button {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 40rpx;
+  background: #fff;
+  padding-bottom: calc(40rpx + env(safe-area-inset-bottom));
+}
+
+.submit-btn {
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  background: #07C160;
+  color: #fff;
+  font-size: 32rpx;
+  border-radius: 45rpx;
+  border: none;
+}
+
+.submit-btn::after {
+  border: none;
+}
+
+/* 导航栏样式 */
+.nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 44px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1rpx solid #eee;
+  z-index: 100;
+}
+
+.nav-left {
+  padding: 0 20rpx;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.back-icon {
+  font-size: 36rpx;
+  color: #333;
+  padding: 20rpx;
+}
+
+.nav-title {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333;
+}
+
+.nav-right {
+  width: 100rpx;
+} 

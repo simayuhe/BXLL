@@ -1,0 +1,60 @@
+<view class="container">
+  <!-- 自定义导航栏 -->
+  <view class="nav-bar" style="padding-top:{{statusBarHeight}}px">
+    <view class="nav-left" bindtap="goBack">
+      <text class="back-icon">←</text>
+    </view>
+    <view class="nav-title">个人信息</view>
+    <view class="nav-right"></view>
+  </view>
+
+  <!-- 表单区域 -->
+  <view class="form-section">
+    <view class="form-item">
+      <text class="form-label">昵称</text>
+      <input 
+        class="form-input" 
+        type="text" 
+        value="{{userInfo.nickname}}"
+        placeholder="请输入昵称"
+        bindinput="onNicknameInput"
+      />
+    </view>
+    <view class="form-item">
+      <text class="form-label">电话</text>
+      <input 
+        class="form-input" 
+        type="number" 
+        value="{{userInfo.phone}}"
+        placeholder="请输入电话号码"
+        maxlength="11"
+        bindinput="onPhoneInput"
+      />
+    </view>
+    <view class="form-item">
+      <text class="form-label">微信</text>
+      <input 
+        class="form-input" 
+        type="text" 
+        value="{{userInfo.wechat}}"
+        placeholder="请输入微信号"
+        bindinput="onWechatInput"
+      />
+    </view>
+    <view class="form-item">
+      <text class="form-label">ID</text>
+      <text class="form-text">{{userInfo.userId}}</text>
+    </view>
+  </view>
+
+  <!-- 底部提示 -->
+  <view class="bottom-tip">
+    <text class="tip-text">注册相关咨询：</text>
+    <text class="tip-link">微信号</text>
+  </view>
+
+  <!-- 底部按钮 -->
+  <view class="bottom-button">
+    <button class="submit-btn" bindtap="onSubmit">{{isEdit ? '保存' : '注册'}}</button>
+  </view>
+</view> 

@@ -1,0 +1,88 @@
+<!--pages/discover/discover.wxml-->
+<view class="container">
+  <!-- 顶部切换栏 -->
+  <view class="tab-header">
+    <view class="tab-item {{currentTab === 0 ? 'active' : ''}}" bindtap="switchTab" data-index="0">
+      团队作品
+      <view class="tab-line {{currentTab === 0 ? 'active' : ''}}"></view>
+    </view>
+    <view class="tab-item {{currentTab === 1 ? 'active' : ''}}" bindtap="switchTab" data-index="1">
+      个人游记
+      <view class="tab-line {{currentTab === 1 ? 'active' : ''}}"></view>
+    </view>
+  </view>
+
+  <!-- 内容区域 -->
+  <swiper 
+    class="content-swiper" 
+    current="{{currentTab}}" 
+    bindchange="swiperChange"
+    duration="300"
+    easing-function="easeInOutCubic"
+  >
+    <!-- 团队作品列表 -->
+    <swiper-item>
+      <scroll-view 
+        scroll-y 
+        class="scroll-view"
+        enhanced
+        show-scrollbar="{{false}}"
+        bounces="{{true}}"
+      >
+        <view class="post-list">
+          <view class="post-item" wx:for="{{teamPosts}}" wx:key="id">
+            <view class="rank-badge rank-{{index + 1}}">{{index + 1}}</view>
+            <image class="post-image" src="{{item.image}}" mode="aspectFill"></image>
+            <view class="post-info">
+              <view class="post-title">{{item.title}}</view>
+              <view class="post-stats">
+                <text>{{item.views}}万观看</text>
+                <text>{{item.likes}}赞</text>
+                <text>{{item.comments}}评论</text>
+              </view>
+              <view class="post-author">
+                <image class="author-avatar" src="{{item.author.avatar}}" mode="aspectFill"></image>
+                <text class="author-name">{{item.author.name}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+
+    <!-- 个人游记列表 -->
+    <swiper-item>
+      <scroll-view 
+        scroll-y 
+        class="scroll-view"
+        enhanced
+        show-scrollbar="{{false}}"
+        bounces="{{true}}"
+      >
+        <view class="post-list">
+          <view class="post-item" wx:for="{{personalPosts}}" wx:key="id">
+            <view class="rank-badge rank-{{index + 1}}">{{index + 1}}</view>
+            <image class="post-image" src="{{item.image}}" mode="aspectFill"></image>
+            <view class="post-info">
+              <view class="post-title">{{item.title}}</view>
+              <view class="post-stats">
+                <text>{{item.views}}万观看</text>
+                <text>{{item.likes}}赞</text>
+                <text>{{item.comments}}评论</text>
+              </view>
+              <view class="post-author">
+                <image class="author-avatar" src="{{item.author.avatar}}" mode="aspectFill"></image>
+                <text class="author-name">{{item.author.name}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+
+  <!-- 新建游记按钮 -->
+  <view class="add-button" bindtap="createPost">
+    <text class="add-icon">+</text>
+  </view>
+</view>

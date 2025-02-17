@@ -1,0 +1,69 @@
+<!--pages/home/home.wxml-->
+<scroll-view 
+  scroll-y 
+  class="container" 
+  enhanced 
+  show-scrollbar="{{false}}"
+  bounce="{{false}}"
+  bindscroll="onPageScroll"
+>
+  <!-- 轮播图板块 -->
+  <swiper class="banner" indicator-dots autoplay circular>
+    <swiper-item>
+      <image src="/assets/HomePage/PlatFormEvents.png" mode="aspectFill" class="banner-image"/>
+    </swiper-item>
+  </swiper>
+
+  <!-- 最近浏览板块 -->
+  <view class="recent-view">
+    <view class="section-title">最近浏览</view>
+    <scroll-view 
+      scroll-x 
+      enhanced 
+      show-scrollbar="{{false}}"
+      class="recent-scroll"
+    >
+      <view class="recent-item" wx:for="{{recentViews}}" wx:key="id">
+        <image src="{{item.image}}" mode="aspectFill" class="recent-image"/>
+        <view class="recent-text">{{item.title}}</view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 地图搜索板块 -->
+  <view class="map-section">
+    <view class="search-box">
+      <input 
+        type="text" 
+        placeholder="请输入您想搜寻的角落" 
+        class="search-input"
+        value="{{searchValue}}"
+        bindinput="onSearchInput"
+      />
+    </view>
+    <view class="map-container">
+      <map 
+        class="map" 
+        longitude="{{longitude}}" 
+        latitude="{{latitude}}" 
+        scale="12"
+        markers="{{markers}}"
+        bindmarkertap="onMarkerTap"
+        show-location
+        enable-zoom
+        enable-scroll
+      ></map>
+    </view>
+  </view>
+
+  <!-- 搜索结果板块 -->
+  <view class="search-results {{isShowResults ? 'show' : ''}}">
+    <view class="result-item" wx:for="{{searchResults}}" wx:key="id">
+      <image src="/assets/HomePage/clubEvents.png" mode="aspectFill" class="result-image"/>
+      <view class="result-info">
+        <view class="result-title">{{item.title}}</view>
+        <view class="result-count">{{item.address}}</view>
+      </view>
+    </view>
+  </view>
+</scroll-view>

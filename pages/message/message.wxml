@@ -1,0 +1,4 @@
+<!--pages/message/message.wxml-->
+<view class="container">
+  <text class="page-title">消息</text>
+</view>
