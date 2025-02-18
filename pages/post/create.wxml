@@ -2,7 +2,7 @@
   <!-- 顶部导航 -->
   <view class="nav-bar">
     <view class="nav-back" bindtap="navigateBack">
-      <text class="back-icon">←</text>
+      <image class="back-icon" src="/assets/icons/back.png" mode="aspectFit"></image>
     </view>
     <text class="nav-title">发布帖子</text>
   </view>
